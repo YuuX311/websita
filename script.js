@@ -41,6 +41,19 @@ function irA(nuevo) {
 btnSiguiente.addEventListener('click', () => irA(actual + 1));
 btnAtras.addEventListener('click', () => irA(actual - 1));
 
+// Animación de "encogerse" al hacer clic en los botones
+[btnAtras, btnSiguiente].forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.remove('presionado');   // por si quedó de un clic anterior
+    void btn.offsetWidth;                 // fuerza al navegador a "notar" el cambio
+    btn.classList.add('presionado');      // dispara la animación
+  });
+
+  btn.addEventListener('animationend', () => {
+    btn.classList.remove('presionado');   // limpia la clase al terminar
+  });
+});
+
 function actualizarBotones() {
   btnAtras.disabled = (actual === 0);
   btnSiguiente.disabled = (actual === tarjetas.length - 1);
