@@ -1,6 +1,6 @@
 .fondo {
-    min-width: 100vw;
-    min-height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
     z-index: -1;
     background-image: url(fondo2.jpg);
     background-repeat: no-repeat;
@@ -18,16 +18,12 @@
 .escenario {
     margin-top: 55px;
     position: relative;
-    border: 1px dotted red;
     height: 80%;
     width: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    >div {
-        border: 1px dotted purple;
-    }
 }
 .controles {
     display: flex; 
@@ -41,7 +37,7 @@
     justify-content: center;
 }
 .tarjeta {
-    max-height: 350px;
+    max-height: 400px;
     min-width: 500px;
     grid-area: tjt;
     display: none;              /* oculta de verdad, no ocupa espacio */
@@ -53,6 +49,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: center;
 }
 .tarjeta.activa  { display: block; }  /* existe en la página */
 .tarjeta.visible { opacity: 1; }      /* se ve */
